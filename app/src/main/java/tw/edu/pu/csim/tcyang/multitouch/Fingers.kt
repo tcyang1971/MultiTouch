@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
+import android.view.MotionEvent
 import android.view.View
 
 class Fingers(context: Context?) : View(context) {
@@ -17,5 +18,13 @@ class Fingers(context: Context?) : View(context) {
         paint.color = Color.YELLOW
         canvas.drawCircle(xPos, yPos, 80f, paint)
     }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean{
+        xPos = event.getX()
+        yPos = event.getY()
+        invalidate()
+        return true
+    }
+
 
 }
